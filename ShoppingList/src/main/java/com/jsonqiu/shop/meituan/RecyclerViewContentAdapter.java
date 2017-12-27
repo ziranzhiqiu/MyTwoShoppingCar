@@ -18,6 +18,7 @@ import java.util.List;
  * Created by JsonQiu on 2017/12/3 0003.
  */
 public class RecyclerViewContentAdapter extends RecyclerView.Adapter<RecyclerViewContentAdapter.ViewHolder>{
+    private String  TAG = "RecyclerContentAdapter";
     private LayoutInflater mLayoutInflater;
     protected List<String> mListContentData;
     private Context mContext;
@@ -41,11 +42,12 @@ public class RecyclerViewContentAdapter extends RecyclerView.Adapter<RecyclerVie
         this.mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
         mGoodsDataBaseInterface = OperateGoodsDataBase.getInstance();
+        Log.e(TAG,"  size =  "+mListContentData.size());
     }
     //创建ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.i("TAG", "Hellow");
+        Log.e(TAG, "---onCreateViewHolder---");
         View v = mLayoutInflater.inflate(R.layout.item_menu_content,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;

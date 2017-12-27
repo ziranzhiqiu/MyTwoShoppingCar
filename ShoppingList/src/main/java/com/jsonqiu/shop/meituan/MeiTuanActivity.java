@@ -27,12 +27,11 @@ public class MeiTuanActivity extends BaseActivity {
     ImageView mFmlTitleBack;
     @BindView(R.id.m_fml_title_tv)
     TextView mTitle;
+
     @BindView(R.id.m_list_menu)
     RecyclerView mRecyclerMenu;
     @BindView(R.id.m_list_content)
     RecyclerView mRecyclerContent;
-    @BindView(R.id.view)
-    View view;
     @BindView(R.id.m_list_all_price)
     TextView mListAllPrice;
     @BindView(R.id.m_listview)
@@ -141,6 +140,7 @@ public class MeiTuanActivity extends BaseActivity {
                 mRecyclerViewMenuCommonadapter.notifyDataSetChanged();
                 mRecyclerViewContentCommonadapter.notifyDataSetChanged();
                 setAll();
+                Toast.makeText(mContext,"菜单列表  = " + SELECTPOSITION,Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -158,6 +158,7 @@ public class MeiTuanActivity extends BaseActivity {
         mRecyclerViewContentCommonadapter.setOnItemClickListener(new RecyclerViewContentAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(RecyclerViewContentAdapter.ViewHolder holder) {
+                Toast.makeText(mContext,"---商品种类列表---",Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -174,8 +175,10 @@ public class MeiTuanActivity extends BaseActivity {
                     holder.mImgJian.setVisibility(View.VISIBLE);
                     holder.mNumber.setText(mGoodsDataBaseInterface.saveGoodsNumber(mContext, SELECTPOSITION, DemoData.ListMenu_GOODSID[holder.getPosition()], "1", DemoData.ListMenu_PPRICE[holder.getPosition()]) + "");
                     holder.mNumber.setVisibility(View.VISIBLE);
+                    Toast.makeText(mContext,"--- 第一次点餐 ---",Toast.LENGTH_SHORT).show();
                 }/** 点击加号之前有数据的时候 */
                 else {
+                    Toast.makeText(mContext,"--- 继续加餐 ---",Toast.LENGTH_SHORT).show();
                     holder.mNumber.setText(mGoodsDataBaseInterface.saveGoodsNumber(mContext, SELECTPOSITION, DemoData.ListMenu_GOODSID[holder.getPosition()], String.valueOf(Integer.parseInt(numText) + 1), DemoData.ListMenu_PPRICE[holder.getPosition()]) + "");
                 }
                 /** 动画 */
@@ -187,6 +190,7 @@ public class MeiTuanActivity extends BaseActivity {
             /** 减少 */
             @Override
             public void onItemJianClick(RecyclerViewContentAdapter.ViewHolder holder) {
+                Toast.makeText(mContext,"--- 减餐 ---",Toast.LENGTH_SHORT).show();
                 String numText = holder.mNumber.getText().toString().trim();
                 holder.mNumber.setText(mGoodsDataBaseInterface.saveGoodsNumber(mContext, SELECTPOSITION, DemoData.ListMenu_GOODSID[holder.getPosition()], String.valueOf(Integer.parseInt(numText) - 1), DemoData.ListMenu_PPRICE[holder.getPosition()]) + "");
                 numText = holder.mNumber.getText().toString().trim();

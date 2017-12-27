@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jsonqiu.shop.meituan.ShopcartAdapter;
 import com.jsonqiu.tbshoppingcart.R;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.jsonqiu.shop.meituan;
+package com.jsonqiu.shop.taobao;
 
 import android.content.Context;
 import android.content.DialogInterface;
