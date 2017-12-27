@@ -1,1 +1,1 @@
-include ':MyMeiTuan', ':MyTaoBao'
+include ':MyTaoBao'

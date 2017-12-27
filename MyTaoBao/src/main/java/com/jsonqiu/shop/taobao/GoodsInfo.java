@@ -1,4 +1,4 @@
-package com.jsonqiu.shop.entity;
+package com.jsonqiu.shop.taobao;
 
 /**
  * 商品信息

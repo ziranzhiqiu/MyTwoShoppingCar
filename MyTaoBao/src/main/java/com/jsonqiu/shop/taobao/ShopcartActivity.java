@@ -1,4 +1,4 @@
-package com.jsonqiu.shop;
+package com.jsonqiu.shop.taobao;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,8 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jsonqiu.shop.entity.GoodsInfo;
-import com.jsonqiu.shop.entity.StoreInfo;
+import com.jsonqiu.shop.meituan.ShopcartAdapter;
 import com.jsonqiu.tbshoppingcart.R;
 
 import java.util.ArrayList;
@@ -77,11 +76,21 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView( R.layout.activity_main);
+        setContentView(R.layout.activity_taobao);
         context = this;
         initDatas();
         ButterKnife.bind(this);
         initEvents();
+        initView();
+    }
+
+    private void initView() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void initEvents() {
@@ -116,9 +125,9 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
         }
 
         //购物车已清空
-        if(count==0){
+        if (count == 0) {
             clearCart();
-        } else{
+        } else {
             title.setText("购物车" + "(" + count + ")");
         }
     }
@@ -140,7 +149,7 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
             groups.add(new StoreInfo(i + "", "天猫店铺" + (i + 1) + "号店"));
             List<GoodsInfo> products = new ArrayList<GoodsInfo>();
             for (int j = 0; j <= i; j++) {
-                int[] img = {R.drawable.goods1, R.drawable.goods2,R.drawable.goods3, R.drawable.goods4,R.drawable.goods5, R.drawable.goods6};
+                int[] img = {R.drawable.goods1, R.drawable.goods2, R.drawable.goods3, R.drawable.goods4, R.drawable.goods5, R.drawable.goods6};
                 products.add(new GoodsInfo(j + "", "商品", groups.get(i)
                         .getName() + "的第" + (j + 1) + "个商品", 12.00 + new Random().nextInt(23), new Random().nextInt(5) + 1, "豪华", "1", img[i * j], 6.00 + new Random().nextInt(13)));
             }
@@ -215,7 +224,7 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
             groups.remove(groupPosition);
         }
         selva.notifyDataSetChanged();
-   //     handler.sendEmptyMessage(0);
+        //     handler.sendEmptyMessage(0);
         calculate();
     }
 
@@ -315,9 +324,9 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
         tvTotalPrice.setText("￥" + totalPrice);
         tvGoToPay.setText("去支付(" + totalCount + ")");
         //计算购物车的金额为0时候清空购物车的视图
-        if(totalCount==0){
+        if (totalCount == 0) {
             setCartNum();
-        } else{
+        } else {
             title.setText("购物车" + "(" + totalCount + ")");
         }
     }
@@ -329,7 +338,7 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
             case R.id.all_chekbox:
                 doCheckAll();
                 break;
-            case  R.id.tv_delete:
+            case R.id.tv_delete:
                 if (totalCount == 0) {
                     Toast.makeText(context, "请选择要移除的商品", Toast.LENGTH_LONG).show();
                     return;
@@ -353,7 +362,7 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
                         });
                 alert.show();
                 break;
-            case  R.id.tv_go_to_pay:
+            case R.id.tv_go_to_pay:
                 if (totalCount == 0) {
                     Toast.makeText(context, "请选择要支付的商品", Toast.LENGTH_LONG).show();
                     return;
@@ -377,7 +386,7 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
                         });
                 alert.show();
                 break;
-            case  R.id.subtitle:
+            case R.id.subtitle:
                 if (flag == 0) {
                     llInfo.setVisibility(View.GONE);
                     tvGoToPay.setVisibility(View.GONE);
@@ -391,14 +400,14 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
                 }
                 flag = (flag + 1) % 2;//其余得到循环执行上面2个不同的功能
                 break;
-            case  R.id.tv_share:
+            case R.id.tv_share:
                 if (totalCount == 0) {
                     Toast.makeText(context, "请选择要分享的商品", Toast.LENGTH_LONG).show();
                     return;
                 }
                 Toast.makeText(ShopcartActivity.this, "分享成功", Toast.LENGTH_SHORT).show();
                 break;
-            case  R.id.tv_save:
+            case R.id.tv_save:
                 if (totalCount == 0) {
                     Toast.makeText(context, "请选择要保存的商品", Toast.LENGTH_LONG).show();
                     return;
@@ -427,10 +436,10 @@ public class ShopcartActivity extends Activity implements ShopcartAdapter.CheckI
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        selva=null;
+        selva = null;
         groups.clear();
-        totalPrice=0;
-        totalCount=0;
+        totalPrice = 0;
+        totalCount = 0;
         children.clear();
     }
 }

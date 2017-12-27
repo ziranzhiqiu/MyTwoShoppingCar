@@ -1,4 +1,4 @@
-package com.jsonqiu.shop;
+package com.jsonqiu.shop.meituan;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -24,8 +24,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.jsonqiu.shop.entity.GoodsInfo;
-import com.jsonqiu.shop.entity.StoreInfo;
+import com.jsonqiu.shop.taobao.GoodsInfo;
+import com.jsonqiu.shop.taobao.StoreInfo;
 import com.jsonqiu.tbshoppingcart.R;
 
 import java.util.List;
