@@ -42,12 +42,12 @@ public class RecyclerViewContentAdapter extends RecyclerView.Adapter<RecyclerVie
         this.mContext = context;
         mLayoutInflater = LayoutInflater.from(mContext);
         mGoodsDataBaseInterface = OperateGoodsDataBase.getInstance();
-        Log.e(TAG,"  size =  "+mListContentData.size());
+        Log.e(TAG,"               size =        "+mListContentData.size());
     }
     //创建ViewHolder
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Log.e(TAG, "---onCreateViewHolder---");
+        Log.e(TAG, " ---onCreateViewHolder---  ");
         View v = mLayoutInflater.inflate(R.layout.item_menu_content,parent,false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
