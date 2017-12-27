@@ -20,7 +20,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MeiTuanActivity extends BaseActivity {
+public class ActivityMeiTuan extends BaseActivity {
 
 
     @BindView(R.id.m_fml_title_back)
@@ -47,7 +47,7 @@ public class MeiTuanActivity extends BaseActivity {
     @BindView(R.id.m_list_num)
     TextView mListAllNum;
 
-    public static String TAG = "MeiTuanActivity";
+    public static String TAG = "ActivityMeiTuan";
 
     /**
      * 侧边栏菜单数据填充器
@@ -182,7 +182,7 @@ public class MeiTuanActivity extends BaseActivity {
                     holder.mNumber.setText(mGoodsDataBaseInterface.saveGoodsNumber(mContext, SELECTPOSITION, DemoData.ListMenu_GOODSID[holder.getPosition()], String.valueOf(Integer.parseInt(numText) + 1), DemoData.ListMenu_PPRICE[holder.getPosition()]) + "");
                 }
                 /** 动画 */
-                GoodsAnimUtil.setAnim(MeiTuanActivity.this, holder.mImgJia, mCarLay);
+                GoodsAnimUtil.setAnim(ActivityMeiTuan.this, holder.mImgJia, mCarLay);
                 GoodsAnimUtil.setOnEndAnimListener(new onEndAnim());
                 /** 统计购物总数和购物总价 */
             }

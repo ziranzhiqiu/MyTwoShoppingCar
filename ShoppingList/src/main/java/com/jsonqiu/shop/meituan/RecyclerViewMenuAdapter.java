@@ -52,7 +52,7 @@ public class RecyclerViewMenuAdapter extends RecyclerView.Adapter<RecyclerViewMe
         holder.viewRed.setVisibility(View.GONE);
         holder.viewV.setVisibility(View.VISIBLE);
         //根据点击item对应的position来改变该item的状态
-        if (holder.getPosition() == MeiTuanActivity.SELECTPOSITION) {
+        if (holder.getPosition() == ActivityMeiTuan.SELECTPOSITION) {
             holder.mLinearLayout.setBackgroundResource(R.color.white);
             holder.viewRed.setVisibility(View.VISIBLE);
             holder.viewV.setVisibility(View.GONE);

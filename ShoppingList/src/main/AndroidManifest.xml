@@ -20,7 +20,7 @@
             android:configChanges="orientation|keyboardHidden"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified|stateHidden|adjustPan"></activity>
-        <activity android:name="com.jsonqiu.shop.meituan.MeiTuanActivity" />
+        <activity android:name="com.jsonqiu.shop.meituan.ActivityMeiTuan" />
 
     </application>
 

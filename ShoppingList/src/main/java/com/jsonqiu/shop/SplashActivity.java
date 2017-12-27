@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.jsonqiu.shop.meituan.MeiTuanActivity;
+import com.jsonqiu.shop.meituan.ActivityMeiTuan;
 import com.jsonqiu.shop.taobao.ShopcartActivity;
 import com.jsonqiu.tbshoppingcart.R;
 
@@ -25,7 +25,7 @@ public class SplashActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SplashActivity.this, MeiTuanActivity.class));
+                startActivity(new Intent(SplashActivity.this, ActivityMeiTuan.class));
             }
         });
     }

@@ -64,12 +64,12 @@ public class RecyclerViewContentAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.mRatingBar.getRating();
 
         /** 获取存储的商品数量 */
-        if (mGoodsDataBaseInterface.getSecondGoodsNumber(mContext, MeiTuanActivity.SELECTPOSITION , DemoData.ListMenu_GOODSID[holder.getPosition()]) == 0) {
+        if (mGoodsDataBaseInterface.getSecondGoodsNumber(mContext, ActivityMeiTuan.SELECTPOSITION , DemoData.ListMenu_GOODSID[holder.getPosition()]) == 0) {
             holder.mNumber.setText("");
             holder.mNumber.setVisibility(View.GONE);
             holder.mImgJian.setVisibility(View.GONE);
         } else {
-            holder.mNumber.setText("" + mGoodsDataBaseInterface.getSecondGoodsNumber(mContext, MeiTuanActivity.SELECTPOSITION , DemoData.ListMenu_GOODSID[holder.getPosition()]));
+            holder.mNumber.setText("" + mGoodsDataBaseInterface.getSecondGoodsNumber(mContext, ActivityMeiTuan.SELECTPOSITION , DemoData.ListMenu_GOODSID[holder.getPosition()]));
             holder.mNumber.setVisibility(View.VISIBLE);
             holder.mImgJian.setVisibility(View.VISIBLE);
         }
